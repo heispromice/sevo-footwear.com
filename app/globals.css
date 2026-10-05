@@ -1,26 +1,207 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../app";
+@source "../components";
+@source "../content";
+@source "../lib";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * SEVO design system.
+ * Monochrome only: black (authority), white (product surfaces),
+ * off-white (editorial), gray (support / borders).
+ * Never introduce brand colours here.
+ */
 
 @theme inline {
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0px;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0 0 0);
+  --paper: oklch(0.976 0.002 106);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0 0 0);
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.976 0.002 106);
+  --secondary-foreground: oklch(0 0 0);
+  --muted: oklch(0.936 0.002 106);
+  --muted-foreground: oklch(0.52 0 0);
+  --accent: oklch(0.936 0.002 106);
+  --accent-foreground: oklch(0 0 0);
+  --destructive: oklch(0.28 0 0);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.916 0.002 106);
+  --input: oklch(0.88 0.002 106);
+  --ring: oklch(0 0 0);
+  --chart-1: oklch(0.1 0 0);
+  --chart-2: oklch(0.3 0 0);
+  --chart-3: oklch(0.5 0 0);
+  --chart-4: oklch(0.68 0 0);
+  --chart-5: oklch(0.84 0 0);
+  --sidebar: oklch(0.09 0 0);
+  --sidebar-foreground: oklch(0.976 0.002 106);
+  --sidebar-primary: oklch(1 0 0);
+  --sidebar-primary-foreground: oklch(0 0 0);
+  --sidebar-accent: oklch(0.18 0 0);
+  --sidebar-accent-foreground: oklch(0.976 0.002 106);
+  --sidebar-border: oklch(0.24 0 0);
+  --sidebar-ring: oklch(0.6 0 0);
+}
+
+.dark {
+  --background: oklch(0 0 0);
+  --foreground: oklch(0.976 0.002 106);
+  --paper: oklch(0.16 0 0);
+  --card: oklch(0.09 0 0);
+  --card-foreground: oklch(0.976 0.002 106);
+  --popover: oklch(0.09 0 0);
+  --popover-foreground: oklch(0.976 0.002 106);
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(0.18 0 0);
+  --secondary-foreground: oklch(0.976 0.002 106);
+  --muted: oklch(0.2 0 0);
+  --muted-foreground: oklch(0.68 0 0);
+  --accent: oklch(0.2 0 0);
+  --accent-foreground: oklch(0.976 0.002 106);
+  --destructive: oklch(0.85 0 0);
+  --destructive-foreground: oklch(0 0 0);
+  --border: oklch(0.26 0 0);
+  --input: oklch(0.3 0 0);
+  --ring: oklch(0.9 0 0);
+  --sidebar: oklch(0.06 0 0);
+  --sidebar-foreground: oklch(0.976 0.002 106);
+  --sidebar-primary: oklch(1 0 0);
+  --sidebar-primary-foreground: oklch(0 0 0);
+  --sidebar-accent: oklch(0.18 0 0);
+  --sidebar-accent-foreground: oklch(0.976 0.002 106);
+  --sidebar-border: oklch(0.24 0 0);
+  --sidebar-ring: oklch(0.6 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-foreground);
+    color: var(--color-background);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Wordmark: wide, geometric, understated. */
+@utility sevo-wordmark {
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding-left: 0.42em;
+}
+
+/* Editorial display headline: tight leading, controlled tracking. */
+@utility sevo-display {
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+/* Small uppercase navigation / metadata label. */
+@utility sevo-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Technical metadata: SKU, archive numbers, counts. */
+@utility sevo-meta {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@utility sevo-rule {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Calm image reveal — no bounce, no scale-in on load. */
+@utility sevo-fade {
+  animation: sevo-fade-in 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@keyframes sevo-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
